@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>スライディングパズルゲーム</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🧩 スライディングパズル</h1>
+            <p>数字のタイルを正しい順序に並べよう！</p>
+        </header>
+        
+        <div class="game-info">
+            <div class="moves">
+                <span class="label">移動回数:</span>
+                <span id="moveCount">0</span>
+            </div>
+            <button id="shuffleBtn" class="btn">🔀 シャッフル</button>
+            <button id="resetBtn" class="btn">🔄 リセット</button>
+        </div>
+        
+        <div id="puzzle" class="puzzle-grid"></div>
+        
+        <div id="winMessage" class="win-message hidden">
+            <h2>🎉 おめでとう！</h2>
+            <p>パズルを完成させました！</p>
+            <button id="playAgainBtn" class="btn">もう一度プレイ</button>
+        </div>
+        
+        <div class="instructions">
+            <h3>遊び方</h3>
+            <ul>
+                <li>空いているスペースの隣のタイルをクリックして移動させます</li>
+                <li>1から15まで順番に並べることが目標です</li>
+                <li>右下の空いているスペースが正しい位置です</li>
+            </ul>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
