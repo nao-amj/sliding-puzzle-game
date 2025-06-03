@@ -1,0 +1,227 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.container {
+    background: white;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    width: 100%;
+    text-align: center;
+}
+
+header h1 {
+    color: #4a5568;
+    margin-bottom: 10px;
+    font-size: 2.5em;
+}
+
+header p {
+    color: #718096;
+    margin-bottom: 30px;
+    font-size: 1.1em;
+}
+
+.game-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.moves {
+    font-size: 1.2em;
+    color: #4a5568;
+    font-weight: bold;
+}
+
+.label {
+    color: #718096;
+    font-weight: normal;
+}
+
+#moveCount {
+    color: #667eea;
+    font-size: 1.3em;
+}
+
+.btn {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+}
+
+.btn:active {
+    transform: translateY(0);
+}
+
+.puzzle-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    gap: 10px;
+    max-width: 400px;
+    margin: 0 auto 30px;
+    background: #f7fafc;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.tile {
+    aspect-ratio: 1;
+    background: linear-gradient(135deg, #4299e1 0%, #3182ce 100%);
+    border: none;
+    border-radius: 10px;
+    font-size: 1.5em;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tile:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.tile.movable {
+    background: linear-gradient(135deg, #48bb78 0%, #38a169 100%);
+    animation: pulse 1s infinite alternate;
+}
+
+@keyframes pulse {
+    from { box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); }
+    to { box-shadow: 0 4px 16px rgba(72, 187, 120, 0.4); }
+}
+
+.empty {
+    background: transparent;
+    cursor: default;
+    box-shadow: none;
+}
+
+.empty:hover {
+    transform: none;
+}
+
+.win-message {
+    background: linear-gradient(135deg, #48bb78 0%, #38a169 100%);
+    color: white;
+    padding: 30px;
+    border-radius: 15px;
+    margin-bottom: 30px;
+    animation: celebration 0.6s ease-out;
+}
+
+.win-message h2 {
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+.win-message p {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+}
+
+.hidden {
+    display: none;
+}
+
+@keyframes celebration {
+    0% { transform: scale(0.8); opacity: 0; }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+.instructions {
+    background: #f7fafc;
+    padding: 20px;
+    border-radius: 15px;
+    text-align: left;
+    color: #4a5568;
+}
+
+.instructions h3 {
+    margin-bottom: 15px;
+    color: #2d3748;
+    text-align: center;
+}
+
+.instructions ul {
+    list-style: none;
+}
+
+.instructions li {
+    margin-bottom: 10px;
+    padding-left: 20px;
+    position: relative;
+}
+
+.instructions li:before {
+    content: "💡";
+    position: absolute;
+    left: 0;
+}
+
+@media (max-width: 600px) {
+    .container {
+        padding: 20px;
+        margin: 10px;
+    }
+    
+    header h1 {
+        font-size: 2em;
+    }
+    
+    .game-info {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .puzzle-grid {
+        max-width: 300px;
+        padding: 15px;
+    }
+    
+    .tile {
+        font-size: 1.2em;
+    }
+    
+    .btn {
+        padding: 12px 24px;
+        font-size: 1em;
+    }
+}
